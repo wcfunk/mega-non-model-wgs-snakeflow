@@ -51,7 +51,7 @@ rclone_base: "gdrive-rclone:Bioinformatic-Project-Archives/mega-flow-test"
 # copy its contents to rclone_base.  If you don't want the contents
 # of the 'data' directory to be copied with the send_to_gdrive 
 # rule, set the following parameter to False. 
-rclone_data: True
+rclone_data: False
 
 # this is the default value for the first GenomicsDBImport run.
 # If you want to change it, you should typically change it
