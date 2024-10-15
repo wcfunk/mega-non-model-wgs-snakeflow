@@ -38,7 +38,7 @@ set-threads:
   genomics_db_import_scaffold_groups: 10
   genomics_db2vcf_scattered: 10
   mark_duplicates: 30
-  make_gvcf_sections: 24
+  make_gvcf_sections: 30
   clip_overlaps: 24
   
 set-resources:
@@ -46,7 +46,7 @@ set-resources:
     mem_mb: 37400
     time: "'23:59:59'"
   make_gvcf_sections:
-    mem_mb: 89760
+    mem_mb: 112200
     time: "'23:59:59'"
   genomics_db_import_chromosomes:
     mem_mb: 59840

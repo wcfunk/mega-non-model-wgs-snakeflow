@@ -1,4 +1,3 @@
-import os
 import warnings
 import pandas as pd
 from snakemake.utils import validate
@@ -184,9 +183,13 @@ def chromo_import_gdb_opts(wildcards):
         return(" --batch-size 50 --reader-threads 2 --genomicsdb-shared-posixfs-optimizations --intervals {chr} --genomicsdb-workspace-path ".format(chr = wildcards.chromo))
     
 
+#holden changed this for the scaffold groups db when building databases from .gvcf file
+#def scaff_group_import_gdb_opts(wildcards):
+#        return(" --batch-size 50 --reader-threads 2 --genomicsdb-shared-posixfs-optimizations --intervals results/bqsr-round-{bq}/gdb_intervals/{sg}.list --merge-contigs-into-num-partitions 1  --genomicsdb-workspace-path ".format(bq = wildcards.bqsr_round, sg = wildcards.scaff_group))
 
 def scaff_group_import_gdb_opts(wildcards):
-        return(" --batch-size 50 --reader-threads 2 --genomicsdb-shared-posixfs-optimizations --intervals results/bqsr-round-{bq}/gdb_intervals/{sg}.list --merge-contigs-into-num-partitions 1  --genomicsdb-workspace-path ".format(bq = wildcards.bqsr_round, sg = wildcards.scaff_group))
+        return(" --batch-size 50 --reader-threads 2 --genomicsdb-shared-posixfs-optimizations --intervals results/bqsr-round-{bq}/interval_lists/{sg}.list --merge-contigs-into-num-partitions 1 --genomicsdb-workspace-path ".format(bq = wildcards.bqsr_round, sg = wildcards.scaff_group))
+
 
 
 ## Here we get the -L option(s) for a chromosome or a scaff_group

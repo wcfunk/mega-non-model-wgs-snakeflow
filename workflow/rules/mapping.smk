@@ -1,4 +1,3 @@
-
 rule trim_reads_pe:
     input:
         unpack(get_fastq),
@@ -23,6 +22,7 @@ rule trim_reads_pe:
         "       -o {output.r1} -O {output.r2} "
         "       -h {output.html} -j {output.json} "
         "  {params.trim_settings} > {log.out} 2> {log.err} "
+
 
 
 # eca modified this.  The idea is to give 4 threads to bwa.

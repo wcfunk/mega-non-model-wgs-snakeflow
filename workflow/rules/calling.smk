@@ -45,7 +45,7 @@ rule make_gvcf_sections:
         gvcf="results/bqsr-round-{bqsr_round}/gvcf_sections/{sample}/{sg_or_chrom}.g.vcf.gz",
         idx="results/bqsr-round-{bqsr_round}/gvcf_sections/{sample}/{sg_or_chrom}.g.vcf.gz.tbi",
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "../envs/gatk4.2.6.1.yaml" 
     log:
         stderr="results/bqsr-round-{bqsr_round}/logs/gatk/haplotypecaller/{sample}/{sg_or_chrom}.stderr",
         stdout="results/bqsr-round-{bqsr_round}/logs/gatk/haplotypecaller/{sample}/{sg_or_chrom}.stdout",
@@ -101,11 +101,13 @@ rule concat_gvcf_sections:
 ## Note: the next two rules are unsatisfying because params.fileflags and input.gvcfs are
 ## defined separately, though they are effecively the same thing.
 ## This is pretty messed up.  The log file is for the last run, but I also
-## tee it to one named with the import number.  
+## tee it to one named with the import number.
+
 rule genomics_db_import_chromosomes:
     input:
-        gvcfs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf_sections/{sample}/{{chromo}}.g.vcf.gz", sample=sample_list),
-        gvcf_idxs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf_sections/{sample}/{{chromo}}.g.vcf.gz.tbi", sample=sample_list),
+        gvcfs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf/{sample}.g.vcf.gz", sample=sample_list),
+        gvcf_idxs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf/{sample}.g.vcf.gz.tbi", sample=sample_list),
+        interval_list="results/bqsr-round-{bqsr_round}/interval_lists/{chromo}.list"
     output:
         db=directory("results/bqsr-round-{bqsr_round}/genomics_db/{chromo}")
     log:
@@ -125,6 +127,7 @@ rule genomics_db_import_chromosomes:
     shell:
         " gatk --java-options {params.java_opts} GenomicsDBImport "
         " $(echo {input.gvcfs} | awk '{{for(i=1;i<=NF;i++) printf(\" -V %s \", $i)}}') "
+        " -L {input.interval_list} "
         " {params.my_opts} {output.db} > {log} 2>&1  "
         
 
@@ -135,11 +138,10 @@ rule genomics_db_import_chromosomes:
 # than that.
 rule genomics_db_import_scaffold_groups:
     input:
-        gvcfs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf_sections/{sample}/{{scaff_group}}.g.vcf.gz", sample=sample_list),
-        gvcf_idxs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf_sections/{sample}/{{scaff_group}}.g.vcf.gz.tbi", sample=sample_list),
-        scaff_groups = config["scaffold_groups"],
+        gvcfs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf/{sample}.g.vcf.gz", sample=sample_list),
+        gvcf_idxs=lambda wc: expand("results/bqsr-round-{{bqsr_round}}/gvcf/{sample}.g.vcf.gz.tbi", sample=sample_list),
+        interval_list="results/bqsr-round-{bqsr_round}/interval_lists/{scaff_group}.list"
     output:
-        interval_list="results/bqsr-round-{bqsr_round}/gdb_intervals/{scaff_group}.list",
         db=directory("results/bqsr-round-{bqsr_round}/genomics_db/{scaff_group}")
     log:
         "results/bqsr-round-{bqsr_round}/logs/gatk/genomicsdbimport/{scaff_group}.log"
@@ -156,9 +158,9 @@ rule genomics_db_import_scaffold_groups:
     conda:
         "../envs/gatk4.2.6.1.yaml"
     shell:
-        " awk -v sg={wildcards.scaff_group} 'NR>1 && $1 == sg {{print $2}}' {input.scaff_groups} > {output.interval_list}; "
         " gatk --java-options {params.java_opts} GenomicsDBImport "
         " $(echo {input.gvcfs} | awk '{{for(i=1;i<=NF;i++) printf(\" -V %s \", $i)}}') "
+        " -L {input.interval_list} "
         " {params.my_opts} {output.db} >{log} 2>&1; "
 
 
