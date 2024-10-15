@@ -1,7 +1,7 @@
 ## Major Updates
 Eric and I made some changes to accomodate processing new fastq files with the addition of stored gvcf files from a previous run
 
-1. Configs can largely stay the same as before as long as the ref genome is the same. scaff_groups, chromosomes, and scatters can remain the same. You will need to make a new units file. I suggest prepping a units file for the new fastqs and merging with the old units in R.
+1. Configs can largely stay the same as before as long as the ref genome is the same. scaff_groups, chromosomes, and scatters can remain the same. You will need to make a new units file. I suggest prepping a units file for the new fastqs and merging with the old units in R. I will add my updated prep-configs.Rmd here soon.
 
 2. Update snakemake. I used 8.20.4 here
 
