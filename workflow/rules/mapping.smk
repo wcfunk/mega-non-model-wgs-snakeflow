@@ -10,7 +10,7 @@ rule trim_reads_pe:
         html="results/bqsr-round-{bqsr_round}/qc/fastp/{sample}---{unit}.html",
         json="results/bqsr-round-{bqsr_round}/qc/fastp/{sample}---{unit}.json"
     conda:
-        "../envs/fastp.yaml"
+        "fastp"
     log:
         out="results/bqsr-round-{bqsr_round}/logs/trim_reads_pe/{sample}---{unit}.log",
         err="results/bqsr-round-{bqsr_round}/logs/trim_reads_pe/{sample}---{unit}.err"
@@ -53,6 +53,7 @@ rule map_reads:
         time="23:59:59"
     wrapper:
         "v1.23.3/bio/bwa/mem"
+        
 
 
 

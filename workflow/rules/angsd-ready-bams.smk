@@ -23,11 +23,11 @@ rule clip_overlaps:
         clip="results/bqsr-round-{bqsr_round}/logs/clip_overlaps/clip_overlap-{sample}.log",
         index="results/bqsr-round-{bqsr_round}/logs/clip_overlaps/index-{sample}.log"
     conda:
-        "../envs/bamutil_samtools.yaml"
+        "bamutil_samtools"
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/clip_overlaps/{sample}.bmk"
     shell:
-        " bam clipOverlap --in {input} --out {output} --stats 2> {log.clip} && "
+        " bam clipOverlap --in {input} --out {output} --poolSize 8000000 --poolSkipClip --stats 2> {log.clip} && "
         " samtools index {output} 2> {log.index}"
 
 
@@ -60,7 +60,7 @@ rule make_species_specific_indel_vcfs:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/make_species_specific_indel_vcfs/{igrp}/selectvariants-{sg_or_chrom}.bmk"
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "gatk4.2.6.1"
     shell:
         " IGRP={wildcards.igrp};                           "  
         " if [ $IGRP = \"__ALL\" ]; then                   "   # just hard-link the files in this case
@@ -91,7 +91,7 @@ rule get_known_indels:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/get_known_indels/bcftools-{igrp}-{sg_or_chrom}.bmk"
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         "SAMP=$(bcftools query -l {input.indel} | head -n 1); "
         " bcftools view -Oz -s $SAMP {input.indel} > {output.vcf} 2> {log}; "
@@ -112,7 +112,7 @@ rule bcfconcat_known_indels:
     params:
         opts=" --naive "
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         " (bcftools concat {params.opts} -Oz {input} > {output.vcf} 2> {log}; "
         " bcftools index -t {output.vcf})  2>> {log}; "
@@ -132,7 +132,7 @@ rule gatk3_register:
     benchmark:
         "results/benchmarks/gatk3_register/gatk3_register.bmk",
     conda:
-        "../envs/gatk3.8.yaml"
+        "gatk3.8"
     params:
         jopts="-Xmx4g"
     shell:
@@ -160,7 +160,7 @@ rule realigner_target_creator:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/realigner_target_creator/{igrp}.bmk",
     conda:
-        "../envs/gatk3.8.yaml"
+        "gatk3.8"
     params:
         jopts="-Xmx4g"
     threads: 4
@@ -190,7 +190,7 @@ rule indel_realigner:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/indel_realigner/{igrp}/{sample}.bmk",
     conda:
-        "../envs/gatk3.8.yaml"
+        "gatk3.8"
     params:
         jopts="-Xmx4g"
     shell:

@@ -15,7 +15,7 @@ rule bqsr_relevant_histograms:
 	benchmark:
 		"results/bqsr-round-{bqsr_round}/benchmarks/bqsr_relevant_histograms/benchmark.bmk"
 	conda:
-		"../envs/bcftools.yaml"
+		"bcftools"
 	shell:
 		"workflow/scripts/qd_and_qual.sh {input.bcf} {output.qd} {output.qual} {log} "
 
@@ -38,7 +38,7 @@ rule condense_variants_for_bqsr:
 	benchmark:
 		"results/bqsr-round-{bqsr_round}/benchmarks/condense_variants_for_bqsr/benchmark.bmk"
 	conda:
-		"../envs/bcftools.yaml"
+		"bcftools"
 	shell:
 		"SAMP=$(bcftools query -l {input.bcf} | head -n 1); "
 		" bcftools view -i 'QUAL >= {params.qual} && QD >= {params.qd}' "
@@ -62,7 +62,7 @@ rule recalibrate_bases:
 	benchmark:
 		"results/bqsr-round-{bqsr_round}/benchmarks/recalibrate_bases/{sample}.bmk"
 	conda:
-		"../envs/gatk4.2.6.1.yaml"
+		"gatk4.2.6.1"
 	shell:
 		"gatk BaseRecalibrator "
 		" -I {input.bam} "
@@ -87,7 +87,7 @@ rule apply_bqsr:
 	benchmark:
 		"results/bqsr-round-{bqsr_round}/benchmarks/apply_bqsr/{sample}.bmk"
 	conda:
-		"../envs/gatk4.2.6.1.yaml"
+		"gatk4.2.6.1"
 	shell:
 		"gatk --java-options \"-Dsamjdk.compression_level=9\" ApplyBQSR "
 		" -R {input.ref} "

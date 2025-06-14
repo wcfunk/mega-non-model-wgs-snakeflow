@@ -45,7 +45,7 @@ rule make_gvcf_sections:
         gvcf="results/bqsr-round-{bqsr_round}/gvcf_sections/{sample}/{sg_or_chrom}.g.vcf.gz",
         idx="results/bqsr-round-{bqsr_round}/gvcf_sections/{sample}/{sg_or_chrom}.g.vcf.gz.tbi",
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "gatk4.2.6.1"
     log:
         stderr="results/bqsr-round-{bqsr_round}/logs/gatk/haplotypecaller/{sample}/{sg_or_chrom}.stderr",
         stdout="results/bqsr-round-{bqsr_round}/logs/gatk/haplotypecaller/{sample}/{sg_or_chrom}.stdout",
@@ -84,7 +84,7 @@ rule concat_gvcf_sections:
     params:
         opts=" --naive "
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         " bcftools concat {params.opts} -O z {input} > {output.gvcf} 2>{log}; "
         " bcftools index -t {output.gvcf} "
@@ -121,7 +121,7 @@ rule genomics_db_import_chromosomes:
         time = "36:00:00"
     threads: 2
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "gatk4.2.6.1"
     shell:
         " gatk --java-options {params.java_opts} GenomicsDBImport "
         " $(echo {input.gvcfs} | awk '{{for(i=1;i<=NF;i++) printf(\" -V %s \", $i)}}') "
@@ -154,7 +154,7 @@ rule genomics_db_import_scaffold_groups:
         time = "36:00:00"
     threads: 2
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "gatk4.2.6.1"
     shell:
         " awk -v sg={wildcards.scaff_group} 'NR>1 && $1 == sg {{print $2}}' {input.scaff_groups} > {output.interval_list}; "
         " gatk --java-options {params.java_opts} GenomicsDBImport "
@@ -190,7 +190,7 @@ rule genomics_db2vcf_scattered:
         time = "1-00:00:00"
     threads: 2
     conda:
-        "../envs/gatk4.2.6.1.yaml"
+        "gatk4.2.6.1"
     shell:
         " gatk --java-options {params.java_opts} GenotypeGVCFs "
         " {params.pextra} "
@@ -214,7 +214,7 @@ rule gather_scattered_vcfs:
     params:
         opts=" --naive "
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         " (bcftools concat {params.opts} -Oz {input.vcf} > {output.vcf}; "
         " bcftools index -t {output.vcf})  2>{log}; "
@@ -239,7 +239,7 @@ rule mark_dp0_as_missing:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/mark_dp0_as_missing/{sg_or_chrom}.bmk"
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         "(bcftools +setGT {input.vcf} -- -t q -n . -i 'FMT/DP=0 | (FMT/PL[:0]=0 & FMT/PL[:1]=0 & FMT/PL[:2]=0)' | "
         " bcftools +fill-tags - -- -t 'NMISS=N_MISSING' | "
@@ -262,7 +262,7 @@ rule bcf_concat:
     params:
         opts=" --naive "
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         " (bcftools concat {params.opts} -Ob {input} > {output.bcf}; "
         " bcftools index {output.bcf})  2> {log}; "
@@ -284,7 +284,7 @@ rule bcf_concat_mafs:
     params:
         opts=" --naive "
     conda:
-        "../envs/bcftools.yaml"
+        "bcftools"
     shell:
         " (bcftools concat {params.opts} -Ob {input} > {output.bcf}; "
         " bcftools index {output.bcf})  2>{log}; "

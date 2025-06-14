@@ -1,0 +1,638 @@
++ source /home/wcfunk@colostate.edu/.bashrc
+++ export TERM=screen
+++ TERM=screen
+++ '[' -f /etc/bashrc ']'
+++ . /etc/bashrc
++++ '[' -z '' ']'
++++ BASHRCSOURCED=Y
++++ '[' '' ']'
++++ shopt -q login_shell
++++ '[' 2003178 -gt 199 ']'
+++++ /usr/bin/id -gn
+++++ /usr/bin/id -un
++++ '[' wcfunkpgrp@colostate.edu = wcfunk@colostate.edu ']'
++++ umask 022
++++ SHELL=/bin/bash
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/00-modulepath.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/00-modulepath.sh
+++++ '[' -z /etc/modulefiles:/usr/share/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles ']'
+++++ :
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/bash_completion.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/bash_completion.sh
+++++ '[' -n '4.4.20(1)-release' -a -n '' -a -z '' ']'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/colorgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorgrep.sh
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'grep=grep --color=auto'
+++++ alias 'egrep=egrep --color=auto'
+++++ alias 'fgrep=fgrep --color=auto'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/colorls.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorls.sh
+++++ '[' '!' -t 0 ']'
+++++ return
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/colorsysstat.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorsysstat.sh
+++++ export S_COLORS=auto
+++++ S_COLORS=auto
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/colorxzgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorxzgrep.sh
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'xzgrep=xzgrep --color=auto'
+++++ alias 'xzegrep=xzegrep --color=auto'
+++++ alias 'xzfgrep=xzfgrep --color=auto'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/colorzgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorzgrep.sh
+++++ '[' -f /usr/libexec/grepconf.sh ']'
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'zgrep=zgrep --color=auto'
+++++ alias 'zfgrep=zfgrep --color=auto'
+++++ alias 'zegrep=zegrep --color=auto'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/cvs.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/cvs.sh
+++++ export CVS_RSH=ssh
+++++ CVS_RSH=ssh
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/gawk.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/gawk.sh
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/gpfs.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/gpfs.sh
+++++ PATH='/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/lang.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/lang.sh
+++++ '[' -n en_US.UTF-8 ']'
+++++ LANG_backup=en_US.UTF-8
+++++ for config in /etc/locale.conf "${HOME}/.i18n"
+++++ '[' -f /etc/locale.conf ']'
++++++ /usr/bin/sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/export \1=\2/;t;d' /etc/locale.conf
+++++ eval export 'LANG="en_US.UTF-8"'
++++++ export LANG=en_US.UTF-8
++++++ LANG=en_US.UTF-8
+++++ for config in /etc/locale.conf "${HOME}/.i18n"
+++++ '[' -f /home/wcfunk@colostate.edu/.i18n ']'
+++++ '[' -n en_US.UTF-8 ']'
+++++ LANG=en_US.UTF-8
+++++ unset LANG_backup config
+++++ '[' -n '' ']'
+++++ '[' -n en_US.UTF-8 ']'
+++++ '[' screen = linux ']'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/less.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/less.sh
+++++ '[' -z '||/usr/bin/lesspipe.sh %s' ']'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/lmod.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/lmod.sh
+++++ LMOD_VERSION=8.2.7
+++++ LMOD_PKG=/curc/sw/lmod/8.2.7
+++++ LMOD_DIR=/curc/sw/lmod/8.2.7/libexec
+++++ LMOD_CMD=/curc/sw/lmod/8.2.7/libexec/lmod
+++++ MODULESHOME=/curc/sw/lmod/8.2.7
+++++ '[' wcfunk@colostate.edu '!=' root ']'
+++++ export MODULEPATH_ROOT=/curc/sw/alpine-modules
+++++ MODULEPATH_ROOT=/curc/sw/alpine-modules
+++++ export LMOD_PACKAGE_PATH=/curc/sw/alpine-modules/.site
+++++ LMOD_PACKAGE_PATH=/curc/sw/alpine-modules/.site
+++++ export LMOD_AVAIL_STYLE=grouped
+++++ LMOD_AVAIL_STYLE=grouped
+++++ export LMOD_SETTARG_CMD=:
+++++ LMOD_SETTARG_CMD=:
+++++ export LMOD_FULL_SETTARG_SUPPORT=no
+++++ LMOD_FULL_SETTARG_SUPPORT=no
+++++ export LMOD_COLORIZE=yes
+++++ LMOD_COLORIZE=yes
+++++ export LMOD_PREPEND_BLOCK=normal
+++++ LMOD_PREPEND_BLOCK=normal
++++++ /curc/sw/lmod/8.2.7/libexec/addto --append MODULEPATH /curc/sw/alpine-modules/compilers
+++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers
+++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers
++++++ /curc/sw/lmod/8.2.7/libexec/addto --append MODULEPATH /curc/sw/alpine-modules/idep
+++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep
+++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep
++++++ /curc/sw/lmod/8.2.7/libexec/addto --append MODULEPATH /curc/sw/alpine-modules/udep/bio
+++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio
+++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio
++++++ /curc/sw/lmod/8.2.7/libexec/addto --append MODULEPATH /curc/sw/lmod/8.2.7/modulefiles/Core
+++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core
+++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core
+++++ echo wcfunk@colostate.edu
+++++ grep -q '@colostate\.edu$'
++++++ /curc/sw/lmod/8.2.7/libexec/addto --append MODULEPATH /curc/partners/csu/modules/csu_licensed
+++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed
+++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed
+++++ export MODULESHOME=/curc/sw/lmod/8.2.7
+++++ MODULESHOME=/curc/sw/lmod/8.2.7
+++++ export BASH_ENV=/curc/sw/lmod/8.2.7/init/bash
+++++ BASH_ENV=/curc/sw/lmod/8.2.7/init/bash
+++++ '[' -z /curc/sw/lmod/8.2.7/share/man: ']'
++++++ /curc/sw/lmod/8.2.7/libexec/addto MANPATH /curc/sw/lmod/8.2.7/share/man
+++++ export MANPATH=/curc/sw/lmod/8.2.7/share/man:
+++++ MANPATH=/curc/sw/lmod/8.2.7/share/man:
++++++ /bin/ps -p 3311455 -ocomm=
+++++ my_shell=slurm_script
++++++ /bin/expr slurm_script : '-*\(.*\)'
+++++ my_shell=slurm_script
++++++ /bin/basename slurm_script
+++++ my_shell=slurm_script
+++++ '[' -f /curc/sw/lmod/8.2.7/init/slurm_script ']'
+++++ . /curc/sw/lmod/8.2.7/init/sh
++++++ LMOD_ROOT=/usr/share/lmod
++++++ LMOD_PKG=/usr/share/lmod/lmod
++++++ LMOD_DIR=/usr/share/lmod/lmod/libexec/
++++++ LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod
++++++ MODULESHOME=/usr/share/lmod/lmod
++++++ export LMOD_CMD
++++++ export LMOD_PKG
++++++ export LMOD_DIR
++++++ export MODULESHOME
++++++ export LMOD_DIR
+++++ unset my_shell
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/modules.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/modules.sh
+++++ . /etc/profile.d/00-modulepath.sh
++++++ '[' -z /etc/modulefiles:/usr/share/modulefiles:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed ']'
++++++ :
+++++ '[' -z '' ']'
+++++ LMOD_ALLOW_ROOT_USE=yes
+++++ '[' -n '' ']'
+++++ '[' yes '!=' yes ']'
+++++ '[' -z /curc/sw/alpine-modules ']'
+++++ findExec READLINK_CMD /usr/bin/readlink readlink
+++++ Nm=READLINK_CMD
+++++ confPath=/usr/bin/readlink
+++++ execNm=readlink
+++++ eval READLINK_CMD=/usr/bin/readlink
++++++ READLINK_CMD=/usr/bin/readlink
+++++ '[' '!' -x /usr/bin/readlink ']'
+++++ unset Nm confPath execNm
+++++ findExec PS_CMD /usr/bin/ps ps
+++++ Nm=PS_CMD
+++++ confPath=/usr/bin/ps
+++++ execNm=ps
+++++ eval PS_CMD=/usr/bin/ps
++++++ PS_CMD=/usr/bin/ps
+++++ '[' '!' -x /usr/bin/ps ']'
+++++ unset Nm confPath execNm
+++++ findExec EXPR_CMD /usr/bin/expr expr
+++++ Nm=EXPR_CMD
+++++ confPath=/usr/bin/expr
+++++ execNm=expr
+++++ eval EXPR_CMD=/usr/bin/expr
++++++ EXPR_CMD=/usr/bin/expr
+++++ '[' '!' -x /usr/bin/expr ']'
+++++ unset Nm confPath execNm
+++++ findExec BASENAME_CMD /usr/bin/basename basename
+++++ Nm=BASENAME_CMD
+++++ confPath=/usr/bin/basename
+++++ execNm=basename
+++++ eval BASENAME_CMD=/usr/bin/basename
++++++ BASENAME_CMD=/usr/bin/basename
+++++ '[' '!' -x /usr/bin/basename ']'
+++++ unset Nm confPath execNm
+++++ unset -f findExec
+++++ '[' -f /proc/3311455/exe ']'
++++++ /usr/bin/readlink /proc/3311455/exe
+++++ my_shell=/usr/bin/bash
++++++ /usr/bin/expr /usr/bin/bash : '-*\(.*\)'
+++++ my_shell=/usr/bin/bash
++++++ /usr/bin/basename /usr/bin/bash
+++++ my_shell=bash
+++++ case ${my_shell} in
+++++ '[' -f /usr/share/lmod/lmod/init/bash ']'
+++++ . /usr/share/lmod/lmod/init/bash
++++++ '[' -z '' ']'
++++++ case "$-" in
++++++ __lmod_vx=x
++++++ '[' -n x ']'
++++++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++++++ unset __lmod_vx
+++++ unset my_shell PS_CMD EXPR_CMD BASENAME_CMD MODULEPATH_INIT LMOD_ALLOW_ROOT_USE READLINK_CMD
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/mpi-selector.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/mpi-selector.sh
+++++ mpi_selector_dir=/var/mpi-selector/data
+++++ mpi_selector_homefile=/home/wcfunk@colostate.edu/.mpi-selector
+++++ mpi_selector_sysfile=/etc/sysconfig/mpi-selector
+++++ mpi_selection=
+++++ test -f /home/wcfunk@colostate.edu/.mpi-selector
+++++ test -f /etc/sysconfig/mpi-selector
+++++ test '' '!=' '' -a -f /var/mpi-selector/data/.sh
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/prompt.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/prompt.sh
+++++ '[' '' ']'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/ssh-x-forwarding.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/ssh-x-forwarding.sh
+++++ '[' -z '' ']'
+++++ return
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/vim.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vim.sh
+++++ '[' -n '4.4.20(1)-release' -o -n '' -o -n '' ']'
++++++ /usr/bin/id -u
+++++ '[' 2003178 -le 200 ']'
+++++ alias vi
+++++ alias vi=vim
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/vnc.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vnc.sh
+++++ PATH='/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin'
++++ for i in /etc/profile.d/*.sh
++++ '[' -r /etc/profile.d/which2.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/which2.sh
+++++ '[' /var/spool/slurmd/job14700765/slurm_script = ksh ']'
+++++ '[' /var/spool/slurmd/job14700765/slurm_script = -ksh ']'
+++++ alias 'which=(alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot'
++++ unset i
++++ unset -f pathmunge
++++ export SCRATCHDIR=/scratch/alpine
++++ SCRATCHDIR=/scratch/alpine
++++ export APPTAINER_TMPDIR=/scratch/alpine/wcfunk@colostate.edu
++++ APPTAINER_TMPDIR=/scratch/alpine/wcfunk@colostate.edu
++++ export APPTAINER_CACHEDIR=/scratch/alpine/wcfunk@colostate.edu/apptainer_cache
++++ APPTAINER_CACHEDIR=/scratch/alpine/wcfunk@colostate.edu/apptainer_cache
++++ export CURC_CONTAINER_DIR=/curc/sw/containers
++++ CURC_CONTAINER_DIR=/curc/sw/containers
++++ export CURC_CONTAINER_DIR_OOD=/curc/sw/containers/open_ondemand
++++ CURC_CONTAINER_DIR_OOD=/curc/sw/containers/open_ondemand
+++ alias 'subl=rmate -p 52666 '
+++ alias 'gitup=eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519'
+++ alias 'ls=ls -GFh'
+++ PS1='[\h: \W]--% '
+++ export 'PATH=/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0'
+++ PATH='/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0'
+++ source /projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0/gatk-completion.sh
++++ CALLER_SCRIPT_NAME=gatk
++++ CS_PREFIX_OPTIONS_ALL_LEGAL_ARGUMENTS=(--help --list --dry-run --java-options GtcToVcf CleanSam BedToIntervalList CreateSomaticPanelOfNormals GatherVcfsCloud FlagStat ParallelCopyGCSDirectoryIntoHDFSSpark CompareSAMs DetermineGermlineContigPloidy FastaAlternateReferenceMaker FastaReferenceMaker MeanQualityByCycleSpark PileupSpark HaplotypeCaller GatherBamFiles EstimateLibraryComplexity LiftoverVcf MergeVcfs LeftAlignAndTrimVariants ASEReadCounter FindBadGenomicKmersSpark CNNVariantWriteTensors SortVcf ClusterCrosscheckMetrics AnnotateVcfWithBamDepth CreateReadCountPanelOfNormals CollectInsertSizeMetricsSpark CollectMultipleMetricsSpark MergeSamFiles CountBasesInReference CountFalsePositives GeneExpressionEvaluation PrintVariantsSpark MarkDuplicatesSpark AccumulateVariantCallingMetrics FilterVcf ComposeSTRTableFile FlowFeatureMapper QualityScoreDistributionSpark GatherVcfs PathSeqBwaSpark RenameSampleInVcf CountVariants DownsampleSam CollectHiSeqXPfFailMetrics ExtractVariantAnnotations IntervalListToBed CollectJumpingLibraryMetrics CNNVariantTrain CombineGenotypingArrayVcfs ExtractSequences CollectReadCounts ReplaceSamHeader SVConcordance BpmToNormalizationManifestCsv Mutect2 CollectQualityYieldMetricsSpark Concordance EvaluateInfoFieldConcordance ScatterIntervalsByNs VariantAnnotator ReadAnonymizer MergeBamAlignment CollectDuplicateMetrics SamToFastq AddCommentsToBam CreateSequenceDictionary CollectIlluminaBasecallingMetrics ApplyBQSR PrintReadCounts RevertBaseQualityScores ViewSam IlluminaBasecallsToSam DiscoverVariantsFromContigAlignmentsSAMSpark NonNFastaSize ReblockGVCF SplitNCigarReads SvDiscoverFromLocalAssemblyContigAlignmentsSpark BaitDesigner CollectIndependentReplicateMetrics ReadsPipelineSpark AnnotateVcfWithExpectedAlleleFraction CpxVariantReInterpreterSpark LocalAssembler ModelSegments CollectArraysVariantCallingMetrics CallCopyRatioSegments HaplotypeBasedVariantRecaller SetNmMdAndUqTags CountReadsSpark CollectQualityYieldMetrics AnnotateIntervals CollectInsertSizeMetrics CNNScoreVariants FifoBuffer UpdateVcfSequenceDictionary IntervalListTools CollectWgsMetricsWithNonZeroCoverage GermlineCNVCaller CollectVariantCallingMetrics CountBasesSpark CalibrateDragstrModel ConvertHeaderlessHadoopBamShardToBam FastqToSam MarkIlluminaAdapters CollectIlluminaLaneMetrics GenotypeGVCFs HaplotypeCallerSpark ScoreVariantAnnotations SimpleMarkDuplicatesWithMateCigar UnmarkDuplicates CountVariantsSpark FindMendelianViolations FuncotateSegments SamFormatConverter SplitSamByLibrary CompareMetrics CollectSequencingArtifactMetrics MarkDuplicates CollectMultipleMetrics ExtractSVEvidenceSpark IlluminaBasecallsToFastq IndexFeatureFile FixVcfHeader PostprocessGermlineCNVCalls PathSeqFilterSpark ShiftFasta BwaSpark FilterSamReads RevertSamSpark PositionBasedDownsampleSam CollectAlignmentSummaryMetrics CollectWgsMetrics BamToBfq CheckIlluminaDirectory CheckFingerprint AddOrReplaceReadGroups VcfToIntervalList LearnReadOrientationModel GetNormalArtifactData CalculateMixingFractions Pileup CreateBafRegressMetricsFile SplitReads ApplyVQSR PlotDenoisedCopyRatios ReorderSam PathSeqScoreSpark AnalyzeSaturationMutagenesis ConvertSequencingArtifactToOxoG RampedHaplotypeCaller FixMateInformation SVCluster SVAnnotate DenoiseReadCounts GenomicsDBImport FuncotatorDataSourceDownloader CheckPileup UmiAwareMarkDuplicatesWithMateCigar ClipReads GetPileupSummaries BuildBamIndex CollectSVEvidence ExtractOriginalAlignmentRecordsByNameSpark BQSRPipelineSpark FilterFuncotations GroundTruthReadsBuilder UpdateVCFSequenceDictionary BaseRecalibratorSpark CollectRawWgsMetrics SelectVariants AnalyzeCovariates PathSeqBuildReferenceTaxonomy FilterAlignmentArtifacts PrintReads CalculateReadGroupChecksum CollectRnaSeqMetrics GetSampleName CompareBaseQualities BamIndexStats CollectOxoGMetrics VariantEval VcfToAdpc MarkDuplicatesWithMateCigar GatherBQSRReports GenotypeConcordance CompareDuplicatesSpark MethylationTypeCaller BaseRecalibrator SortSamSpark SetNmAndUqTags VariantRecalibrator MergePedIntoVcf ValidateBasicSomaticShortMutations CountBases PrintDistantMates AccumulateQualityYieldMetrics LiftOverIntervalList CollectBaseDistributionByCycle PrintReadsSpark PathSeqBuildKmers VariantFiltration FilterIntervals RevertSam CountReads MeanQualityByCycle PrintReadsHeader VcfFormatConverter VariantsToTable CollectRrbsMetrics CheckTerminatorBlock TransferReadTags GatherTranches QualityScoreDistribution FlagStatSpark NormalizeFasta MakeSitesOnlyVcf SplitSamByNumberOfReads ExtractIlluminaBarcodes FindBreakpointEvidenceSpark CalculateContamination CompareReferences CombineGVCFs SiteDepthtoBAF DepthOfCoverage CreateVerifyIDIntensityContaminationMetricsFile PostProcessReadsForRSEM FixMisencodedBaseQualityReads TrainVariantAnnotationsModel RevertOriginalBaseQualitiesAndAddMateCigar BwaAndMarkDuplicatesPipelineSpark AddOATag Funcotator PathSeqPipelineSpark CollectHsMetrics DumpTabixIndex ValidateVariants FilterMutectCalls CrosscheckFingerprints SplitIntervals ApplyBQSRSpark CalcMetadataSpark SortSam StructuralVariationDiscoveryPipelineSpark JointGermlineCNVSegmentation ValidateSamFile CollectGcBiasMetrics SplitVcfs CheckReferenceCompatibility LeftAlignIndels CreateHadoopBamSplittingIndex CollectBaseDistributionByCycleSpark CollectSamErrorMetrics FilterVariantTranches GnarlyGenotyper CalculateGenotypePosteriors CollectTargetedPcrMetrics CollectAllelicCounts BwaMemIndexImageCreator PlotModeledSegments RemoveNearbyIndels CalculateFingerprintMetrics PreprocessIntervals)
++++ CS_PREFIX_OPTIONS_NORMAL_COMPLETION_ARGUMENTS=(--help --list --dry-run --java-options GtcToVcf CleanSam BedToIntervalList CreateSomaticPanelOfNormals GatherVcfsCloud FlagStat ParallelCopyGCSDirectoryIntoHDFSSpark CompareSAMs DetermineGermlineContigPloidy FastaAlternateReferenceMaker FastaReferenceMaker MeanQualityByCycleSpark PileupSpark HaplotypeCaller GatherBamFiles EstimateLibraryComplexity LiftoverVcf MergeVcfs LeftAlignAndTrimVariants ASEReadCounter FindBadGenomicKmersSpark CNNVariantWriteTensors SortVcf ClusterCrosscheckMetrics AnnotateVcfWithBamDepth CreateReadCountPanelOfNormals CollectInsertSizeMetricsSpark CollectMultipleMetricsSpark MergeSamFiles CountBasesInReference CountFalsePositives GeneExpressionEvaluation PrintVariantsSpark MarkDuplicatesSpark AccumulateVariantCallingMetrics FilterVcf ComposeSTRTableFile FlowFeatureMapper QualityScoreDistributionSpark GatherVcfs PathSeqBwaSpark RenameSampleInVcf CountVariants DownsampleSam CollectHiSeqXPfFailMetrics ExtractVariantAnnotations IntervalListToBed CollectJumpingLibraryMetrics CNNVariantTrain CombineGenotypingArrayVcfs ExtractSequences CollectReadCounts ReplaceSamHeader SVConcordance BpmToNormalizationManifestCsv Mutect2 CollectQualityYieldMetricsSpark Concordance EvaluateInfoFieldConcordance ScatterIntervalsByNs VariantAnnotator ReadAnonymizer MergeBamAlignment CollectDuplicateMetrics SamToFastq AddCommentsToBam CreateSequenceDictionary CollectIlluminaBasecallingMetrics ApplyBQSR PrintReadCounts RevertBaseQualityScores ViewSam IlluminaBasecallsToSam DiscoverVariantsFromContigAlignmentsSAMSpark NonNFastaSize ReblockGVCF SplitNCigarReads SvDiscoverFromLocalAssemblyContigAlignmentsSpark BaitDesigner CollectIndependentReplicateMetrics ReadsPipelineSpark AnnotateVcfWithExpectedAlleleFraction CpxVariantReInterpreterSpark LocalAssembler ModelSegments CollectArraysVariantCallingMetrics CallCopyRatioSegments HaplotypeBasedVariantRecaller SetNmMdAndUqTags CountReadsSpark CollectQualityYieldMetrics AnnotateIntervals CollectInsertSizeMetrics CNNScoreVariants FifoBuffer UpdateVcfSequenceDictionary IntervalListTools CollectWgsMetricsWithNonZeroCoverage GermlineCNVCaller CollectVariantCallingMetrics CountBasesSpark CalibrateDragstrModel ConvertHeaderlessHadoopBamShardToBam FastqToSam MarkIlluminaAdapters CollectIlluminaLaneMetrics GenotypeGVCFs HaplotypeCallerSpark ScoreVariantAnnotations SimpleMarkDuplicatesWithMateCigar UnmarkDuplicates CountVariantsSpark FindMendelianViolations FuncotateSegments SamFormatConverter SplitSamByLibrary CompareMetrics CollectSequencingArtifactMetrics MarkDuplicates CollectMultipleMetrics ExtractSVEvidenceSpark IlluminaBasecallsToFastq IndexFeatureFile FixVcfHeader PostprocessGermlineCNVCalls PathSeqFilterSpark ShiftFasta BwaSpark FilterSamReads RevertSamSpark PositionBasedDownsampleSam CollectAlignmentSummaryMetrics CollectWgsMetrics BamToBfq CheckIlluminaDirectory CheckFingerprint AddOrReplaceReadGroups VcfToIntervalList LearnReadOrientationModel GetNormalArtifactData CalculateMixingFractions Pileup CreateBafRegressMetricsFile SplitReads ApplyVQSR PlotDenoisedCopyRatios ReorderSam PathSeqScoreSpark AnalyzeSaturationMutagenesis ConvertSequencingArtifactToOxoG RampedHaplotypeCaller FixMateInformation SVCluster SVAnnotate DenoiseReadCounts GenomicsDBImport FuncotatorDataSourceDownloader CheckPileup UmiAwareMarkDuplicatesWithMateCigar ClipReads GetPileupSummaries BuildBamIndex CollectSVEvidence ExtractOriginalAlignmentRecordsByNameSpark BQSRPipelineSpark FilterFuncotations GroundTruthReadsBuilder UpdateVCFSequenceDictionary BaseRecalibratorSpark CollectRawWgsMetrics SelectVariants AnalyzeCovariates PathSeqBuildReferenceTaxonomy FilterAlignmentArtifacts PrintReads CalculateReadGroupChecksum CollectRnaSeqMetrics GetSampleName CompareBaseQualities BamIndexStats CollectOxoGMetrics VariantEval VcfToAdpc MarkDuplicatesWithMateCigar GatherBQSRReports GenotypeConcordance CompareDuplicatesSpark MethylationTypeCaller BaseRecalibrator SortSamSpark SetNmAndUqTags VariantRecalibrator MergePedIntoVcf ValidateBasicSomaticShortMutations CountBases PrintDistantMates AccumulateQualityYieldMetrics LiftOverIntervalList CollectBaseDistributionByCycle PrintReadsSpark PathSeqBuildKmers VariantFiltration FilterIntervals RevertSam CountReads MeanQualityByCycle PrintReadsHeader VcfFormatConverter VariantsToTable CollectRrbsMetrics CheckTerminatorBlock TransferReadTags GatherTranches QualityScoreDistribution FlagStatSpark NormalizeFasta MakeSitesOnlyVcf SplitSamByNumberOfReads ExtractIlluminaBarcodes FindBreakpointEvidenceSpark CalculateContamination CompareReferences CombineGVCFs SiteDepthtoBAF DepthOfCoverage CreateVerifyIDIntensityContaminationMetricsFile PostProcessReadsForRSEM FixMisencodedBaseQualityReads TrainVariantAnnotationsModel RevertOriginalBaseQualitiesAndAddMateCigar BwaAndMarkDuplicatesPipelineSpark AddOATag Funcotator PathSeqPipelineSpark CollectHsMetrics DumpTabixIndex ValidateVariants FilterMutectCalls CrosscheckFingerprints SplitIntervals ApplyBQSRSpark CalcMetadataSpark SortSam StructuralVariationDiscoveryPipelineSpark JointGermlineCNVSegmentation ValidateSamFile CollectGcBiasMetrics SplitVcfs CheckReferenceCompatibility LeftAlignIndels CreateHadoopBamSplittingIndex CollectBaseDistributionByCycleSpark CollectSamErrorMetrics FilterVariantTranches GnarlyGenotyper CalculateGenotypePosteriors CollectTargetedPcrMetrics CollectAllelicCounts BwaMemIndexImageCreator PlotModeledSegments RemoveNearbyIndels CalculateFingerprintMetrics PreprocessIntervals)
++++ CS_PREFIX_OPTIONS_ALL_ARGUMENT_VALUE_TYPES=("null" "null" "null" "String" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null" "null")
++++ CS_PREFIX_OPTIONS_MUTUALLY_EXCLUSIVE_ARGS=("--help;list,dry-run,java-options" "--list;help,dry-run,java-options")
++++ CS_PREFIX_OPTIONS_SYNONYMOUS_ARGS=("--help;-h")
++++ CS_PREFIX_OPTIONS_MIN_OCCURRENCES=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
++++ CS_PREFIX_OPTIONS_MAX_OCCURRENCES=(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
++++ CS_POSTFIX_OPTIONS_ALL_LEGAL_ARGUMENTS=(--spark-runner --spark-master --cluster --dry-run --java-options --conf --driver-memory --driver-cores --executor-memory --executor-cores --num-executors)
++++ CS_POSTFIX_OPTIONS_NORMAL_COMPLETION_ARGUMENTS=(--spark-runner --spark-master --cluster --dry-run --java-options --conf --driver-memory --driver-cores --executor-memory --executor-cores --num-executors)
++++ CS_POSTFIX_OPTIONS_ALL_ARGUMENT_VALUE_TYPES=("String" "String" "String" "null" "String" "file" "int" "int" "int" "int" "int")
++++ CS_POSTFIX_OPTIONS_MUTUALLY_EXCLUSIVE_ARGS=("")
++++ CS_POSTFIX_OPTIONS_SYNONYMOUS_ARGS=("")
++++ CS_POSTFIX_OPTIONS_MIN_OCCURRENCES=(0 0 0 0 0 0 0 0 0 0)
++++ CS_POSTFIX_OPTIONS_MAX_OCCURRENCES=(1 1 1 1 1 1 1 1 1 1)
++++ HAS_POSTFIX_OPTIONS=true
++++ ALL_TOOLS=(GtcToVcf CleanSam BedToIntervalList CreateSomaticPanelOfNormals GatherVcfsCloud FlagStat ParallelCopyGCSDirectoryIntoHDFSSpark CompareSAMs DetermineGermlineContigPloidy FastaAlternateReferenceMaker FastaReferenceMaker MeanQualityByCycleSpark PileupSpark HaplotypeCaller GatherBamFiles EstimateLibraryComplexity LiftoverVcf MergeVcfs LeftAlignAndTrimVariants ASEReadCounter FindBadGenomicKmersSpark CNNVariantWriteTensors SortVcf ClusterCrosscheckMetrics AnnotateVcfWithBamDepth CreateReadCountPanelOfNormals CollectInsertSizeMetricsSpark CollectMultipleMetricsSpark MergeSamFiles CountBasesInReference CountFalsePositives GeneExpressionEvaluation PrintVariantsSpark MarkDuplicatesSpark AccumulateVariantCallingMetrics FilterVcf ComposeSTRTableFile FlowFeatureMapper QualityScoreDistributionSpark GatherVcfs PathSeqBwaSpark RenameSampleInVcf CountVariants DownsampleSam CollectHiSeqXPfFailMetrics ExtractVariantAnnotations IntervalListToBed CollectJumpingLibraryMetrics CNNVariantTrain CombineGenotypingArrayVcfs ExtractSequences CollectReadCounts ReplaceSamHeader SVConcordance BpmToNormalizationManifestCsv Mutect2 CollectQualityYieldMetricsSpark Concordance EvaluateInfoFieldConcordance ScatterIntervalsByNs VariantAnnotator ReadAnonymizer MergeBamAlignment CollectDuplicateMetrics SamToFastq AddCommentsToBam CreateSequenceDictionary CollectIlluminaBasecallingMetrics ApplyBQSR PrintReadCounts RevertBaseQualityScores ViewSam IlluminaBasecallsToSam DiscoverVariantsFromContigAlignmentsSAMSpark NonNFastaSize ReblockGVCF SplitNCigarReads SvDiscoverFromLocalAssemblyContigAlignmentsSpark BaitDesigner CollectIndependentReplicateMetrics ReadsPipelineSpark AnnotateVcfWithExpectedAlleleFraction CpxVariantReInterpreterSpark LocalAssembler ModelSegments CollectArraysVariantCallingMetrics CallCopyRatioSegments HaplotypeBasedVariantRecaller SetNmMdAndUqTags CountReadsSpark CollectQualityYieldMetrics AnnotateIntervals CollectInsertSizeMetrics CNNScoreVariants FifoBuffer UpdateVcfSequenceDictionary IntervalListTools CollectWgsMetricsWithNonZeroCoverage GermlineCNVCaller CollectVariantCallingMetrics CountBasesSpark CalibrateDragstrModel ConvertHeaderlessHadoopBamShardToBam FastqToSam MarkIlluminaAdapters CollectIlluminaLaneMetrics GenotypeGVCFs HaplotypeCallerSpark ScoreVariantAnnotations SimpleMarkDuplicatesWithMateCigar UnmarkDuplicates CountVariantsSpark FindMendelianViolations FuncotateSegments SamFormatConverter SplitSamByLibrary CompareMetrics CollectSequencingArtifactMetrics MarkDuplicates CollectMultipleMetrics ExtractSVEvidenceSpark IlluminaBasecallsToFastq IndexFeatureFile FixVcfHeader PostprocessGermlineCNVCalls PathSeqFilterSpark ShiftFasta BwaSpark FilterSamReads RevertSamSpark PositionBasedDownsampleSam CollectAlignmentSummaryMetrics CollectWgsMetrics BamToBfq CheckIlluminaDirectory CheckFingerprint AddOrReplaceReadGroups VcfToIntervalList LearnReadOrientationModel GetNormalArtifactData CalculateMixingFractions Pileup CreateBafRegressMetricsFile SplitReads ApplyVQSR PlotDenoisedCopyRatios ReorderSam PathSeqScoreSpark AnalyzeSaturationMutagenesis ConvertSequencingArtifactToOxoG RampedHaplotypeCaller FixMateInformation SVCluster SVAnnotate DenoiseReadCounts GenomicsDBImport FuncotatorDataSourceDownloader CheckPileup UmiAwareMarkDuplicatesWithMateCigar ClipReads GetPileupSummaries BuildBamIndex CollectSVEvidence ExtractOriginalAlignmentRecordsByNameSpark BQSRPipelineSpark FilterFuncotations GroundTruthReadsBuilder UpdateVCFSequenceDictionary BaseRecalibratorSpark CollectRawWgsMetrics SelectVariants AnalyzeCovariates PathSeqBuildReferenceTaxonomy FilterAlignmentArtifacts PrintReads CalculateReadGroupChecksum CollectRnaSeqMetrics GetSampleName CompareBaseQualities BamIndexStats CollectOxoGMetrics VariantEval VcfToAdpc MarkDuplicatesWithMateCigar GatherBQSRReports GenotypeConcordance CompareDuplicatesSpark MethylationTypeCaller BaseRecalibrator SortSamSpark SetNmAndUqTags VariantRecalibrator MergePedIntoVcf ValidateBasicSomaticShortMutations CountBases PrintDistantMates AccumulateQualityYieldMetrics LiftOverIntervalList CollectBaseDistributionByCycle PrintReadsSpark PathSeqBuildKmers VariantFiltration FilterIntervals RevertSam CountReads MeanQualityByCycle PrintReadsHeader VcfFormatConverter VariantsToTable CollectRrbsMetrics CheckTerminatorBlock TransferReadTags GatherTranches QualityScoreDistribution FlagStatSpark NormalizeFasta MakeSitesOnlyVcf SplitSamByNumberOfReads ExtractIlluminaBarcodes FindBreakpointEvidenceSpark CalculateContamination CompareReferences CombineGVCFs SiteDepthtoBAF DepthOfCoverage CreateVerifyIDIntensityContaminationMetricsFile PostProcessReadsForRSEM FixMisencodedBaseQualityReads TrainVariantAnnotationsModel RevertOriginalBaseQualitiesAndAddMateCigar BwaAndMarkDuplicatesPipelineSpark AddOATag Funcotator PathSeqPipelineSpark CollectHsMetrics DumpTabixIndex ValidateVariants FilterMutectCalls CrosscheckFingerprints SplitIntervals ApplyBQSRSpark CalcMetadataSpark SortSam StructuralVariationDiscoveryPipelineSpark JointGermlineCNVSegmentation ValidateSamFile CollectGcBiasMetrics SplitVcfs CheckReferenceCompatibility LeftAlignIndels CreateHadoopBamSplittingIndex CollectBaseDistributionByCycleSpark CollectSamErrorMetrics FilterVariantTranches GnarlyGenotyper CalculateGenotypePosteriors CollectTargetedPcrMetrics CollectAllelicCounts BwaMemIndexImageCreator PlotModeledSegments RemoveNearbyIndels CalculateFingerprintMetrics PreprocessIntervals)
++++ complete -o default -F _gatk_masterCompletionFunction gatk
+++ export 'PATH=/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0'
+++ PATH='/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0'
+++ export 'PATH=/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++ PATH='/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++ export LSCOLORS=EHfxcxdxBxegecabagacad
+++ LSCOLORS=EHfxcxdxBxegecabagacad
+++ alias 'ls=ls -lGH'
+++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles
+++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/opt/bioinformatics/modulefiles:/opt/bioinformatics/modulefiles:/curc/sw/alpine-modules/compilers:/curc/sw/alpine-modules/idep:/curc/sw/alpine-modules/udep/bio:/curc/sw/lmod/8.2.7/modulefiles/Core:/curc/partners/csu/modules/csu_licensed:/opt/bioinformatics/modulefiles
+++ . /projects/wcfunk@colostate.edu/env
++++ case ":${PATH}:" in
++++ /projects/wcfunk@colostate.edu/miniconda3/bin/conda shell.bash hook
+++ __conda_setup='export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate '\''base'\'''
+++ '[' 0 -eq 0 ']'
+++ eval 'export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate '\''base'\'''
++++ export CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
++++ CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
++++ '[' -z x ']'
++++ conda activate base
++++ local cmd=activate
++++ case "$cmd" in
++++ __conda_activate activate base
++++ '[' -n '' ']'
++++ local ask_conda
+++++ PS1='[\h: \W]--% '
+++++ __conda_exe shell.posix activate base
+++++ '[' -n '' ']'
+++++ /projects/wcfunk@colostate.edu/miniconda3/bin/conda shell.posix activate base
++++ ask_conda='. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh"
+unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) [\h: \W]--% '\''
+export PATH='\''/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\''
+. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/activate.d/libxml2_activate.sh"'
++++ eval '. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh"
+unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) [\h: \W]--% '\''
+export PATH='\''/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\''
+. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/activate.d/libxml2_activate.sh"'
+++++ . /projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh
++++++ test -n ''
++++++ unset XML_CATALOG_FILES
++++++ unset xml_catalog_files_libxml2
+++++ unset _CE_M
+++++ unset _CE_CONDA
+++++ PS1='(base) [\h: \W]--% '
+++++ export 'PATH=/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++++ PATH='/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++++ export CONDA_SHLVL=1
+++++ CONDA_SHLVL=1
+++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+++++ CONDA_PROMPT_MODIFIER='(base) '
+++++ export CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
+++++ CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
+++++ export CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
+++++ CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
+++++ . /projects/wcfunk@colostate.edu/miniconda3/etc/conda/activate.d/libxml2_activate.sh
++++++ test -n ''
++++++ xml_catalog_files_libxml2=
++++++ XML_CATALOG_FILES=
++++++ conda_catalog_files=
++++++ ifs_libxml2=' 	
+'
++++++ IFS=' '
++++++ rem=/projects/wcfunk@colostate.edu/miniconda3
++++++ for pre in ${rem}
++++++ test '' = /projects/wcfunk@colostate.edu/miniconda3
++++++ conda_catalog_files=/projects/wcfunk@colostate.edu/miniconda3
++++++ rem=
++++++ IFS=' 	
+'
++++++ conda_catalog_files='file:///projects/wcfunk@colostate.edu/miniconda3/etc/xml/catalog file:///etc/xml/catalog'
++++++ export 'XML_CATALOG_FILES=file:///projects/wcfunk@colostate.edu/miniconda3/etc/xml/catalog file:///etc/xml/catalog'
++++++ XML_CATALOG_FILES='file:///projects/wcfunk@colostate.edu/miniconda3/etc/xml/catalog file:///etc/xml/catalog'
++++++ unset conda_catalog_files ifs_libxml2 rem
++++ __conda_hashr
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
+++ unset __conda_setup
++ conda activate snakemake8.26.0
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate snakemake8.26.0
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) [\h: \W]--% '
+++ __conda_exe shell.posix activate snakemake8.26.0
+++ '[' -n '' ']'
+++ /projects/wcfunk@colostate.edu/miniconda3/bin/conda shell.posix activate snakemake8.26.0
++ ask_conda='. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh"
+unset _CE_M
+unset _CE_CONDA
+PS1='\''(snakemake8.26.0) [\h: \W]--% '\''
+export PATH='\''/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'\''
+export CONDA_PREFIX='\''/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''snakemake8.26.0'\''
+export CONDA_PROMPT_MODIFIER='\''(snakemake8.26.0) '\''
+export CONDA_PREFIX_1='\''/projects/wcfunk@colostate.edu/miniconda3'\''
+export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\'''
++ eval '. "/projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh"
+unset _CE_M
+unset _CE_CONDA
+PS1='\''(snakemake8.26.0) [\h: \W]--% '\''
+export PATH='\''/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'\''
+export CONDA_PREFIX='\''/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''snakemake8.26.0'\''
+export CONDA_PROMPT_MODIFIER='\''(snakemake8.26.0) '\''
+export CONDA_PREFIX_1='\''/projects/wcfunk@colostate.edu/miniconda3'\''
+export CONDA_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/projects/wcfunk@colostate.edu/miniconda3/bin/python'\'''
+++ . /projects/wcfunk@colostate.edu/miniconda3/etc/conda/deactivate.d/libxml2_deactivate.sh
++++ test -n ''
++++ unset XML_CATALOG_FILES
++++ unset xml_catalog_files_libxml2
+++ unset _CE_M
+++ unset _CE_CONDA
+++ PS1='(snakemake8.26.0) [\h: \W]--% '
+++ export 'PATH=/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++ PATH='/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0/bin:/projects/wcfunk@colostate.edu/miniconda3/condabin:/projects/wcfunk@colostate.edu/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/TurboVNC/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin:/home/wcfunk@colostate.edu/bin:/projects/wcfunk@colostate.edu/java-programs/gatk-4.4.0.0:/home/wcfunk@colostate.edu/bin'
+++ export CONDA_PREFIX=/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0
+++ CONDA_PREFIX=/projects/wcfunk@colostate.edu/miniconda3/envs/snakemake8.26.0
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=snakemake8.26.0
+++ CONDA_DEFAULT_ENV=snakemake8.26.0
+++ export 'CONDA_PROMPT_MODIFIER=(snakemake8.26.0) '
+++ CONDA_PROMPT_MODIFIER='(snakemake8.26.0) '
+++ export CONDA_PREFIX_1=/projects/wcfunk@colostate.edu/miniconda3
+++ CONDA_PREFIX_1=/projects/wcfunk@colostate.edu/miniconda3
+++ export CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
+++ CONDA_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/conda
+++ export CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/projects/wcfunk@colostate.edu/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarch-test-june2025/config.yaml
+Using profile hpcc-profiles/slurm/alpine-wcf for setting default command line arguments.
+host: c3cpu-c15-u7-4.rc.int.colorado.edu
+Building DAG of jobs...
+Creating conda environment https://github.com/snakemake/snakemake-wrappers/raw/v1.1.0/bio/picard/markduplicates/environment.yaml...
+Downloading and installing remote packages.
+slurmstepd: error: *** JOB 14700765 ON c3cpu-c15-u7-4 CANCELLED AT 2025-06-14T07:23:26 ***
