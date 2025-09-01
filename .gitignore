@@ -3,11 +3,10 @@
 .RData
 .Ruserdata
 /data
-results
 results_monarch-test-june2025
+results-wm152
 resources/genome*
 resources/*.zip
 pcangsd
 .snakemake
 .rmd_snakemake
-resources/*.zip
