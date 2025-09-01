@@ -23,13 +23,13 @@
 #SBATCH --nodes=5
 #SBATCH --ntasks-per-node 1
 #################
-#SBATCH --mem=18G
+#SBATCH --mem=3G
 #################
 #get emailed about job BEGIN, END, and FAIL
 #SBATCH --mail-type=END
 #################
 #who to send email to; please change to your email
-#SBATCH  --mail-user=Chris.Funk@colostate.edu
+#SBATCH --mail-user=Chris.Funk@colostate.edu
 #################
 #now run normal batch commands
 ##################
@@ -41,5 +41,5 @@ source ~/.bashrc
 conda activate snakemake8.26.0
 
 
-snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarch-test-june2025/config.yaml --until map_reads
-#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarch-test-june2025/config.yaml
+snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/wm152/config.yaml
+#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/wm152/config.yaml

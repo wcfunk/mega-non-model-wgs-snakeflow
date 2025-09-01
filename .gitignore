@@ -4,6 +4,9 @@
 .Ruserdata
 /data
 results
+results_monarch-test-june2025
 resources/genome*
+resources/ncbi*
+pcangsd
 .snakemake
 .rmd_snakemake

@@ -39,7 +39,7 @@ rule multiqc_dir:
     params:
         extra="--verbose",  # Optional: extra parameters for multiqc.
     conda:
-        "multiqc"
+        "multiqc1.13"
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/multiqc/multiqc.bmk",
     resources:

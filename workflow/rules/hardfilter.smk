@@ -37,7 +37,7 @@ rule make_indel_vcf:
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/make_indel_vcf/selectvariants-indels-{sg_or_chrom}.bmk"
     conda:
-        "gatk4.2.6.1."
+        "gatk4.2.6.1"
     shell:
         " gatk SelectVariants -V {input.vcf}  -select-type INDEL -O {output.vcf} > {log} 2>&1 "
 

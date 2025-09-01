@@ -118,7 +118,7 @@ rule genomics_db_import_chromosomes:
     resources:
         mem_mb = 9400,
         cpus = 2,
-        time = "36:00:00"
+        time = "1-00:00:00"
     threads: 2
     conda:
         "gatk4.2.6.1"
@@ -151,7 +151,7 @@ rule genomics_db_import_scaffold_groups:
     resources:
         mem_mb = 9400,
         cpus = 2,
-        time = "36:00:00"
+        time = "1-00:00:00"
     threads: 2
     conda:
         "gatk4.2.6.1"

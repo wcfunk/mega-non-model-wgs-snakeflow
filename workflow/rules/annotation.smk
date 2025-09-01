@@ -15,6 +15,8 @@ rule annotate_variants:
         # Plugin args can be added as well, e.g. via an entry "MyPlugin,1,FOO", see docs.
         plugins=config["params"]["vep"]["plugins"],
         extra=config["params"]["vep"]["extra"],
+    conda:
+        "vep"
     log:
         "logs/vep/annotate.log",
     threads: 4

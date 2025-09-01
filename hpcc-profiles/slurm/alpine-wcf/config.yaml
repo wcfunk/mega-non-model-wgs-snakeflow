@@ -33,35 +33,31 @@ cluster-generic-cancel-nargs: 4000
 
 
 set-threads:
-  map_reads: 8
+  map_reads: 4
   realigner_target_creator: 4
   genomics_db_import_chromosomes: 10
   genomics_db_import_scaffold_groups: 10
   genomics_db2vcf_scattered: 10
-  mark_duplicates: 10
-  clip_overlaps: 10
+  mark_duplicates: 4
+  clip_overlaps: 4
 
 set-resources:
   clip_overlaps:
-    mem_mb: 37400
+    mem_mb: 14960
   mark_duplicates:
-    mem_mb: 37400
+    mem_mb: 14960
   map_reads:
-    mem_mb: 29920
+    mem_mb: 14960
   make_gvcf_sections:
     mem_mb: 3740
-    time: "23:59:59"
   genomics_db_import_chromosomes:
     mem_mb: 37400
-    time: "23:59:59"
   genomics_db_import_scaffold_groups:
     mem_mb: 37400
-    time: "23:59:59"
   genomics_db2vcf_scattered:
     mem_mb: 37400
-    time: "23:59:59"
   multiqc_dir:
-    mem_mb: 37000
+    mem_mb: 14960
   bwa_index:
     mem_mb: 37000
   realigner_target_creator:

@@ -40,6 +40,8 @@ rule map_reads:
         temp("results/bqsr-round-{bqsr_round}/mapped/{sample}---{unit}.sorted.bam"),
     log:
         "results/bqsr-round-{bqsr_round}/logs/map_reads/{sample}---{unit}.log",
+    conda:
+        "bwa"
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/map_reads/{sample}---{unit}.bmk"
     params:
@@ -66,6 +68,8 @@ rule mark_duplicates:
         metrics="results/bqsr-round-{bqsr_round}/qc/mkdup/{sample}.metrics.txt",
     log:
         "results/bqsr-round-{bqsr_round}/logs/picard/mkdup/{sample}.log",
+    conda:
+        "picard"
     benchmark:
         "results/bqsr-round-{bqsr_round}/benchmarks/mark_duplicates/{sample}.bmk"
     params:

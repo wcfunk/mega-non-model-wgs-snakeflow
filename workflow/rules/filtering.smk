@@ -6,6 +6,8 @@ rule select_calls:
         vcf=temp("filtered/all.{vartype}.vcf.gz"),
     params:
         extra=get_vartype_arg,
+    conda:
+        "gatk4.3.0.0"
     log:
         "logs/gatk/selectvariants/{vartype}.log",
     wrapper:
@@ -20,6 +22,8 @@ rule hard_filter_calls:
         vcf=temp("filtered/all.{vartype}.hardfiltered.vcf.gz"),
     params:
         filters=get_filter,
+    conda:
+        "gatk4.3.0.0"
     log:
         "logs/gatk/variantfiltration/{vartype}.log",
     wrapper:
@@ -33,6 +37,8 @@ rule recalibrate_calls:
         vcf=temp("filtered/all.{vartype}.recalibrated.vcf.gz"),
     params:
         extra=config["params"]["gatk"]["VariantRecalibrator"],
+    conda:
+        "gatk4.3.0.0_google"
     log:
         "logs/gatk/variantrecalibrator/{vartype}.log",
     wrapper:
@@ -50,6 +56,8 @@ rule merge_calls:
         ),
     output:
         vcf="filtered/all.vcf.gz",
+    conda:
+        "picard2.27"
     log:
         "logs/picard/merge-filtered.log",
     wrapper:
