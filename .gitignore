@@ -6,7 +6,8 @@
 results
 results_monarch-test-june2025
 resources/genome*
-resources/ncbi*
+resources/*.zip
 pcangsd
 .snakemake
 .rmd_snakemake
+resources/*.zip
