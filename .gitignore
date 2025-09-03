@@ -10,3 +10,4 @@ resources/*.zip
 pcangsd
 .snakemake
 .rmd_snakemake
+resources/*.zip
