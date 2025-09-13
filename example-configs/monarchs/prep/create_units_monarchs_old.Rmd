@@ -1,0 +1,304 @@
+---
+title: "Create units for monarchs"
+author: "Christen Bossu, modified by W. Chris Funk"
+date: "4/22/2025, modified by W. Chris Funk on 09/12/2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Making units file
+
+And now we can start processing that stuff.  Since the file names
+don't all follow the same conventions, we have to do slightly different
+things with the `.fq.gz` ones versus the `.fastq.gz` ones.  We throw in
+a little `case_when()` for those situations.
+
+Note that here- the naming convention for the three lanes were the same, so I simplified this code chunk. If you need the case_when() function I can send you an updated code! I got this file by using the ls -l command to the location of all the fastq files that I will be using- I had 3 folders
+
+
+```
+ls -l --color=never data/fastqs/*/*gz > monarch.fastq_listing.txt
+```
+
+I had to make separate lists because sample ID names have different numbers of "_" in them. Total pain in the ass, so in future, need to make sure that sample ID names have the SAME number of "_" in their names.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+files1underscores <- read_table("fastq_listing.underscores-1.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, sep = "_"))
+
+files2underscores <- read_table("fastq_listing.underscores-2.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","N2","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, N2, sep = "_"))
+
+files3underscores <- read_table("fastq_listing.underscores-3.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","N2","N3","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, N2, N3, sep = "_"))
+
+files4underscores <- read_table("fastq_listing.underscores-4.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","N2","N3","N4","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, N2, N3, N4, sep = "_"))
+  
+files5underscores <- read_table("fastq_listing.underscores-5.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","N2","N3","N4","N5","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, N2, N3, N4, N5, sep = "_"))
+  
+files6underscores <- read_table("fastq_listing.underscores-6.txt", col_names = FALSE) %>%
+  select(X9, X5) %>%
+  mutate(kb = X5/1000) %>%
+  rename(fq = X9) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("N1","N2","N3","N4","N5","N6","read"),sep="[_.]") %>% mutate(sample_id = paste(N1, N2, N3, N4, N5, N6, sep = "_"))
+  
+files1underscores <- files1underscores %>% mutate(source = "oneunderscores")
+files2underscores <- files2underscores %>% mutate(source = "twounderscores")
+files3underscores <- files3underscores %>% mutate(source = "threeunderscores")
+files4underscores <- files4underscores %>% mutate(source = "fourunderscores")
+files5underscores <- files5underscores %>% mutate(source = "fiveunderscores")
+files6underscores <- files6underscores %>% mutate(source = "sixunderscores")
+
+files <- bind_rows(files1underscores, files2underscores, files3underscores, files4underscores, files5underscores, files6underscores)
+
+files$sample_id
+```
+
+Now, because the naming of the files does not always have the lane, etc., and
+we want to machine name (not really necessary, but we can get it easily from
+the first line of each file), I make a file that has that info that we can join
+onto the path.
+
+```sh
+for i in data/fastqs/*/*gz; do zcat $i | awk -v f=$i 'BEGIN {OFS="\t"} NR==1 {print f, $1; exit}'; done | awk '!/Undetermined/' > monarch.novo.seq-tags-per-path.tsv
+```
+The results of that have been put into:
+```
+example-configs/monarchs/prep/monarch.novo.seq-tags-per-path.tsv
+```
+And we can make it nice like this:
+```{r}
+seq_ids <- read_tsv("monarch.novo.seq-tags-per-path.tsv", col_names = c("fq", "id")) %>%
+  separate(
+    id, 
+    into = c("x1", "x2", "flowcell", "lane"), 
+    sep = ":", 
+    extra = "drop"
+  ) %>%
+  dplyr::select(-x1, -x2) %>%
+  mutate(platform = "ILLUMINA")
+
+
+seq_ids %>% distinct(flowcell)
+```
+
+And we can now join those and pivot them to get fq1 fq2 kb1 and kb2 all on the same
+line, and then assign snakemake sample numbers to them.
+```{r}
+
+files_wide <- files %>%
+  left_join(seq_ids, by = "fq") %>%
+  #mutate(lane=1,flowcell="highseq") %>% 
+  pivot_wider(
+    values_from = c(fq, kb),
+    names_from = read,
+    names_sep = ""
+  ) %>%
+  arrange(sample_id, flowcell, lane) %>%
+  mutate(
+    sample = sprintf("s%04d", as.integer(factor(sample_id, levels = unique(sample_id)))),
+    .before = sample_id
+  ) %>% mutate(library=if_else(flowcell=="HCVC5DSX7","lib1",if_else(flowcell=="22HM5LLT4","lib2",if_else(flowcell=="22HVG3LT4","lib3",if_else(flowcell=="22M5VMLT4","lib4",if_else(flowcell=="22T3TYLT4","lib5",if_else(flowcell=="HLYTNAFXY","deroode1",if_else(flowcell=="HLTC7AFXY","deroode2",if_else(flowcell=="HM3NJAFXY","deroode3",if_else(flowcell=="AAAK73JM5","deroode4",if_else(flowcell=="AAAKJL3M5","deroode5",if_else(flowcell=="AAAJVLMM5","deroode6","deroode7"))))))))))))
+
+```
+
+
+So, now we can make our units file.  For barcodes I am just going to do the
+sample_id + library + lane.  It just needs to be unique for those individuals.
+```{r}
+
+ units<- files_wide %>% group_by(sample) %>%
+  mutate(unit = 1:n(), .after = sample) %>%
+  ungroup() %>%
+  mutate(
+    barcode = str_c(sample_id, library, lane, sep = "-")
+  ) %>%
+  dplyr::select(sample, unit, library, flowcell, platform, lane, sample_id, barcode, fq1, fq2, kb1, kb2) 
+
+write_tsv(units, file = "monarch.units.tsv")
+```
+
+
+## Making chromosomes and scaffold groups
+
+We do this with R.  As always, it is important to look at the format
+in `.test/chromosomes.tsv` and `.test/scaffold_groups.tsv` to know the format.
+```{r}
+#BLVI ragtag genome: GCA_013396875.1_ASM1339687v1_scaffolded_ragtag_genomic.fna.fai
+
+# as I did before, we will let anything over 30 Mb be a "chromosome" and then
+# we will shoot for scaffold groups < 50 Mb in total.
+fai <- read_tsv(
+  "~/Dropbox/BGP/WAVI/WAVI_genome/Vireo_gilvus_B10K_scaffolded.fasta.gz.fai", col_names = c("chrom", "len", "x1", "x2", "x3")) %>%
+  dplyr::select(-starts_with("x")) %>%
+  mutate(cumlen = cumsum(len))
+
+# here are the lengths:
+fai %>%
+  mutate(x = 1:n()) %>%
+  ggplot(aes(x=x, y = len)) + geom_col()
+```
+Proceeding:
+```{r}
+chromos <- fai %>%
+  filter(len >= 4e6) %>%
+  rename(num_bases = len) %>%
+  dplyr::select(-cumlen)
+
+write_tsv(chromos, file = "WAVI.chromosomes.ragtag.tsv")
+
+loco_use <- fai %>%
+  filter(len >= 100000) %>%
+  rename(num_bases = len) %>%
+  dplyr::select(-cumlen,-num_bases)
+
+write_tsv(loco_use, file = "WAVI.chromosomes.100Kb.ragtag.tsv")
+
+# now, get the scaff groups
+scaffs <- fai %>%
+  filter(len < 4e6)
+
+bin_length <- 2e06
+
+scaff_groups <- scaffs %>%
+  mutate(
+    cumul = cumsum(len),
+    part = as.integer(cumul / bin_length) + 1L
+  ) %>%
+  mutate(
+    id = sprintf("scaff_group_%03d", part),
+    .before = chrom
+  ) %>%
+  dplyr::select(-part, -cumlen)
+
+# let's just see the total lengths of those scaff_groups
+# and also the number of scaffolds in each
+scaff_groups %>%
+  #read_delim("ROFI.scaffold_groups.tsv",delim="\t") %>% 
+  group_by(id) %>%
+  summarise(
+    tot_bp = sum(len),
+    num_scaff = n()
+  ) %>% print(n=35)
+```
+Good, that is not too many scaff groups, and also not too many scaffolds
+per any one group.
+```{r}
+write_tsv(scaff_groups, file = "WAVI.scaffold_groups.ragtag.tsv")
+```
+
+
+## Setting up the config.yaml file
+
+As always, it is important to start from .test/config/config.yaml, because that
+is the most up-to-date.  So I copied that to 
+```
+example-configs/YEWA-Jan-2023/config.yaml
+```
+And then I edited it as appropriate.
+
+## Getting the scatters file
+
+I set the scatters to "" in the config like this:
+```yaml
+scatter_intervals_file: ""
+```
+And then I committed all the stuff I just created here and pushed it up to the cluster.
+Then, as suggested in the README, did this:
+```sh
+(base) [node21: mega-non-model-wgs-snakeflow]--% pwd
+/home/eanderson/scratch/PROJECTS/YEWA-Jan-2023/mega-non-model-wgs-snakeflow
+(base) [node21: mega-non-model-wgs-snakeflow]--% conda activate snakemake-7.7.0
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% module load R
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% snakemake  --cores 1 --use-conda results/scatter_config/scatters_5000000.tsv --configfile example-configs/WIFL-April-2025/config.yaml
+
+# then copy the result to the config area:
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% cp results/scatter_config/scatters_5000000.tsv example-configs/YEWA-Jan-2023/
+```
+After that I also updated the config file to point to that new file:
+```yaml
+scatter_intervals_file: "example-configs/YEWA-Jan-2023/scatters_5000000.tsv"
+```
+
+Now, when it is calling variants from the Genomics Data Bases, it will scatter
+the job over sections of genome that are less that 5 Mb (hence the 5000000 in the
+name).
+
+I committed that and pushed it back up.
+
+And now we are ready to do a dry run:
+```sh
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% snakemake -np --profile hpcc-profiles/slurm/sedna 
+YEWA-Jan-2023/config.yaml
+```
+
+
+We can check that this makes sense with the numbers of things we have:
+```{r}
+nrow(units_all)
+```
+
+35 units.  That is the number of trimming and mapping and fastqc jobs we expect.
+
+```{r}
+n_distinct(units_all$sample)
+```
+
+35 distinct samples.  That is the number of dup-marking and other sorts of
+jobs we expect.
+
+```{r}
+nrow(chromos)
+n_distinct(scaff_groups$id)
+```
+
+1 chromosome and 21 scaffold groups.  So we expect a few jobs doing
+1 or 21, or 25 things.
+
+And, for making gvcf sections, we expect:
+Number of individuals times (number of chroms + number of scaff groups) so:
+22 * 35 = 770.
+
+Finally, we expect the total number of GenomicsDB2VCF steps to be the number
+of unique scatter groups (Note that we use the old scatters file here, so that
+things stay consistent when I run this notebook.
+```{r}
+scats <- read_tsv("../scatters_5000000.tsv")
+n_distinct(scats$id, scats$scatter_idx)
+```
+
+So, 274 of those jobs.  

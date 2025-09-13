@@ -41,5 +41,5 @@ source ~/.bashrc
 conda activate snakemake8.26.0
 
 
-snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/wm152/config.yaml
-#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/wm152/config.yaml
+snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml --until genome_dict
+#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml --until genome_dict
