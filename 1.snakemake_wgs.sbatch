@@ -16,6 +16,7 @@
 #SBATCH -t 23:59:59
 #################
 #quality of service; think of it as job priority
+#SBATCH --qos=normal
 #SBATCH -p amilan
 #SBATCH --account=csu89_alpine1
 #################
@@ -41,5 +42,5 @@ source ~/.bashrc
 conda activate snakemake8.26.0
 
 
-snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml --until genome_dict
-#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml --until genome_dict
+snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml
+#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml

@@ -4,6 +4,7 @@ cluster-generic-submit-cmd:
   sbatch
     --partition=amilan
     --account=csu89_alpine1
+    --qos=normal
     --cpus-per-task={threads}
     --mem={resources.mem_mb}
     --time={resources.time}
@@ -38,14 +39,14 @@ set-threads:
   genomics_db_import_chromosomes: 10
   genomics_db_import_scaffold_groups: 10
   genomics_db2vcf_scattered: 10
-  mark_duplicates: 4
+  mark_duplicates: 24
   clip_overlaps: 4
 
 set-resources:
   clip_overlaps:
     mem_mb: 14960
   mark_duplicates:
-    mem_mb: 14960
+    mem_mb: 89760
   map_reads:
     mem_mb: 14960
   make_gvcf_sections:
