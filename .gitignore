@@ -5,6 +5,7 @@
 data
 results
 resources/genome*
+resources/GCA_036426205.1_UCB_Atru_1.0_genomic.fna
 resources/*.zip
 pcangsd
 .snakemake
