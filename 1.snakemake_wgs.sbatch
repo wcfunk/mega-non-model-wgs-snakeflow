@@ -42,5 +42,5 @@ source ~/.bashrc
 conda activate snakemake8.26.0
 
 
-snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml
-#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/monarchs/config.yaml
+snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/firefrogs/config.yaml
+#snakemake --profile hpcc-profiles/slurm/alpine-wcf --configfile example-configs/firefrogs/config.yaml

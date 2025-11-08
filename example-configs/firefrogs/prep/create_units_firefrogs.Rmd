@@ -1,0 +1,318 @@
+---
+title: "Create units for Ascaphus RAPID project, aka, FireFrogs"
+author: "Christen Bossu, modified by W. Chris Funk"
+date: "4/22/2025, modified by W. Chris Funk on 11/07/2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Making units file
+
+And now we can start processing that stuff.  Since the file names
+don't all follow the same conventions, we have to do slightly different
+things with the `.fq.gz` ones versus the `.fastq.gz` ones.  We throw in
+a little `case_when()` for those situations.
+
+Note that here- the naming convention for the three lanes were the same, so I simplified this code chunk. If you need the case_when() function I can send you an updated code! I got this file by using the ls -l command to the location of all the fastq files that I will be using- I had 3 folders
+
+
+```
+ls -l --color=never data/fastqs/*/*/*.fq.gz > firefrogs.fastq_listing.txt
+```
+
+I had to make separate lists because sample ID names have different numbers of "_" in them. Total pain in the ass, so in future, need to make sure that sample ID names have the SAME number of "_" in their names.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+files <- read_table("firefrogs.fastq_listing.txt", col_names = FALSE) %>%
+  select(X8, X4) %>%
+  mutate(kb = X4/1000) %>%
+  rename(fq = X8) %>%
+  select(fq, kb) %>%
+  mutate(base = basename(fq)) %>% 
+  separate(base,into=c("sample_id","num","flowcell","lane","read"),sep="[_.]")
+  
+files$sample_id
+files$num
+files$flowcell
+files$lane
+files$read
+```
+
+Now, because the naming of the files does not always have the lane, etc., and
+we want to machine name (not really necessary, but we can get it easily from
+the first line of each file), I make a file that has that info that we can join
+onto the path.
+
+```sh
+for i in data/fastqs/*/*/*.fq.gz; do zcat $i | awk -v f=$i 'BEGIN {OFS="\t"} NR==1 {print f, $1; exit}'; done | awk '!/Undetermined/' > firefrogs.novo.seq-tags-per-path.tsv
+```
+The results of that have been put into:
+```
+example-configs/firefrogs/prep/firefrogs.novo.seq-tags-per-path.tsv
+```
+And we can make it nice like this:
+```{r}
+seq_ids <- read_tsv("firefrogs.novo.seq-tags-per-path.tsv", col_names = c("fq", "id")) %>%
+  separate(
+    id, 
+    into = c("x1", "x2", "flowcell", "lane"), 
+    sep = ":", 
+    extra = "drop"
+  ) %>%
+  dplyr::select(-x1, -x2) %>%
+  mutate(platform = "ILLUMINA")
+
+
+seq_ids %>% distinct(flowcell)
+```
+
+And we can now join those and pivot them to get fq1 fq2 kb1 and kb2 all on the same
+line, and then assign snakemake sample numbers to them.
+
+```{r}
+
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(readr)
+library(purrr)
+
+# 1) Make sure reads are standardized to "1"/"2"
+files <- files %>%
+  mutate(read = recode(read, "R1" = "1", "R2" = "2")) %>%
+  filter(read %in% c("1", "2"))
+
+# 2) Join header-derived flowcell/lane and coalesce into single columns
+seq_ids_renamed <- seq_ids %>%
+  rename(flowcell_hdr = flowcell, lane_hdr = lane)  # avoid join collisions
+
+files_joined <- files %>%
+  left_join(seq_ids_renamed, by = "fq") %>%
+  mutate(
+    # prefer header-derived; fall back to filename-derived if header missing
+    flowcell = dplyr::coalesce(flowcell_hdr, flowcell),
+    lane     = dplyr::coalesce(lane_hdr, lane)
+  ) %>%
+  select(-flowcell_hdr, -lane_hdr)
+
+# 3) Deduplicate within (sample_id, flowcell, lane, read)
+#    keep subdirectory identity so intralib_reps doesn't collapse into libX
+files_dedup <- files_joined %>%
+  mutate(dir = dirname(fq)) %>%
+  arrange(dir, lane, desc(kb)) %>%
+  distinct(sample_id, flowcell, lane, read, dir, .keep_all = TRUE)
+
+# 4) Wide pivot -> fq1, fq2, kb1, kb2 (now they’ll be scalars, not lists)
+files_wide <- files_dedup %>%
+  pivot_wider(
+    id_cols    = c(sample_id, flowcell, lane, platform, dir), # <- dir separates replicates
+    names_from = read,
+    values_from = c(fq, kb),
+    names_sep  = ""
+  ) %>%
+  arrange(sample_id, flowcell, lane, dir)
+
+# 5) Stable sample codes (keeps your order-of-first-appearance behavior)
+files_wide <- files_wide %>%
+  mutate(
+    sample = sprintf(
+      "s%04d",
+      as.integer(factor(sample_id, levels = unique(sample_id)))
+    ),
+    .before = sample_id
+  )
+
+# 6) Map flowcell -> library with a clean lookup (same mapping you had)
+flowcell_to_library <- c(
+  "HHNVFDSX7" = "novogene_202402",				
+  "H3WCCDSXC" = "novogene_20240510"
+)
+
+files_wide <- files_wide %>%
+  mutate(library = recode(flowcell, !!!flowcell_to_library, .default = "novogene_20240524"))
+
+```
+
+So, now we can make our units file.  For barcodes I am just going to do the
+sample_id + library + lane.  It just needs to be unique for those individuals.
+```{r}
+
+units <- files_wide %>%
+  arrange(sample, library, lane, dir, fq1) %>%   # dir distinguishes intralib reps
+  group_by(sample) %>%
+  mutate(unit = row_number(), .after = sample) %>%
+  ungroup() %>%
+  mutate(barcode = stringr::str_c(sample_id, library, lane, sep = "-")) %>%
+  select(sample, unit, library, flowcell, platform, lane,
+         sample_id, barcode, fq1, fq2, kb1, kb2) %>%
+  arrange(sample, unit)
+
+write_tsv(units, "firefrogs.units.tsv")
+
+```
+
+
+## Making chromosomes and scaffold groups
+
+We do this with R.  As always, it is important to look at the format
+in `.test/chromosomes.tsv` and `.test/scaffold_groups.tsv` to know the format.
+```{r}
+#Ascaphus truei genome: GCA_036426205.1_UCB_Atru_1.0_genomic.fna which I indexed and named genome.fasta.fai
+
+# all 22 A. truei chromosomes are > 11 Mb and all scaffolds are < 1 Mb.
+# so we will use these length thresholds for separating chromosomes and scaffolds.
+fai <- read_tsv(
+  "../../../resources/genome.fasta.fai", col_names = c("chrom", "len", "x1", "x2", "x3")) %>%
+  dplyr::select(-starts_with("x")) %>%
+  mutate(cumlen = cumsum(len))
+
+# here are the lengths:
+fai %>%
+  mutate(x = 1:n()) %>%
+  ggplot(aes(x=x, y = len)) + geom_col()
+
+# get rid of small scaffolds (< 50 Mb):
+fai <- read_tsv(
+  "../../../resources/genome.fasta.fai", col_names = c("chrom", "len", "x1", "x2", "x3")) %>% filter(len>50000) %>% 
+  dplyr::select(-starts_with("x")) %>%
+  mutate(cumlen = cumsum(len))
+
+```
+Proceeding:
+```{r}
+chromos <- fai %>%
+  filter(len >= 11e6) %>%
+  rename(num_bases = len) %>%
+  dplyr::select(-cumlen)
+
+write_tsv(chromos, file = "chromosomes.tsv")
+
+# now, get the scaff groups
+scaffs <- fai %>%
+  filter(len < 1e6)
+
+bin_length <- 50e06
+
+scaff_groups <- scaffs %>%
+  mutate(
+    cumul = cumsum(len),
+    part = as.integer(cumul / bin_length) + 1L
+  ) %>%
+  mutate(
+    id = sprintf("scaff_group_%03d", part),
+    .before = chrom
+  ) %>%
+  dplyr::select(-part, -cumlen)
+
+# let's just see the total lengths of those scaff_groups
+# and also the number of scaffolds in each
+scaff_groups %>%
+  #read_delim("ROFI.scaffold_groups.tsv",delim="\t") %>% 
+  group_by(id) %>%
+  summarise(
+    tot_bp = sum(len),
+    num_scaff = n()
+  ) %>% print(n=35)
+
+# now save these results to file
+scaff_groups %>%
+  #read_delim("ROFI.scaffold_groups.tsv",delim="\t") %>% 
+  group_by(id) %>%
+  summarise(
+    tot_bp = sum(len),
+    num_scaff = n()
+  ) %>% write_tsv("firefrogs.scaffold_groups.summary.tsv")
+
+```
+Good, that is not too many scaff groups, and also not too many scaffolds
+per any one group.
+```{r}
+write_tsv(scaff_groups, file = "scaffold_groups.tsv")
+```
+
+
+## Setting up the config.yaml file
+
+As always, it is important to start from .test/config/config.yaml, because that
+is the most up-to-date.  So I copied that to 
+```
+example-configs/YEWA-Jan-2023/config.yaml
+```
+And then I edited it as appropriate.
+
+## Getting the scatters file
+
+I set the scatters to "" in the config like this:
+```yaml
+scatter_intervals_file: ""
+```
+And then I committed all the stuff I just created here and pushed it up to the cluster.
+Then, as suggested in the README, did this:
+```sh
+(base) [node21: mega-non-model-wgs-snakeflow]--% pwd
+/home/eanderson/scratch/PROJECTS/YEWA-Jan-2023/mega-non-model-wgs-snakeflow
+(base) [node21: mega-non-model-wgs-snakeflow]--% conda activate snakemake-7.7.0
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% module load R
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% snakemake  --cores 1 --use-conda results/scatter_config/scatters_5000000.tsv --configfile example-configs/WIFL-April-2025/config.yaml
+
+# then copy the result to the config area:
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% cp results/scatter_config/scatters_5000000.tsv example-configs/YEWA-Jan-2023/
+```
+After that I also updated the config file to point to that new file:
+```yaml
+scatter_intervals_file: "example-configs/YEWA-Jan-2023/scatters_5000000.tsv"
+```
+
+Now, when it is calling variants from the Genomics Data Bases, it will scatter
+the job over sections of genome that are less that 5 Mb (hence the 5000000 in the
+name).
+
+I committed that and pushed it back up.
+
+And now we are ready to do a dry run:
+```sh
+(snakemake-7.7.0) [node21: mega-non-model-wgs-snakeflow]--% snakemake -np --profile hpcc-profiles/slurm/sedna 
+YEWA-Jan-2023/config.yaml
+```
+
+
+We can check that this makes sense with the numbers of things we have:
+```{r}
+nrow(units_all)
+```
+
+35 units.  That is the number of trimming and mapping and fastqc jobs we expect.
+
+```{r}
+n_distinct(units_all$sample)
+```
+
+35 distinct samples.  That is the number of dup-marking and other sorts of
+jobs we expect.
+
+```{r}
+nrow(chromos)
+n_distinct(scaff_groups$id)
+```
+
+1 chromosome and 21 scaffold groups.  So we expect a few jobs doing
+1 or 21, or 25 things.
+
+And, for making gvcf sections, we expect:
+Number of individuals times (number of chroms + number of scaff groups) so:
+22 * 35 = 770.
+
+Finally, we expect the total number of GenomicsDB2VCF steps to be the number
+of unique scatter groups (Note that we use the old scatters file here, so that
+things stay consistent when I run this notebook.
+```{r}
+scats <- read_tsv("../scatters_5000000.tsv")
+n_distinct(scats$id, scats$scatter_idx)
+```
+
+So, 274 of those jobs.  
