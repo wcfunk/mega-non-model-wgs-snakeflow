@@ -1,7 +1,7 @@
 units: example-configs/firefrogs/firefrogs.units.tsv
 chromosomes: example-configs/firefrogs/chromosomes.tsv
 scaffold_groups: example-configs/firefrogs/scaffold_groups.tsv
-scatter_intervals_file: ""
+scatter_intervals_file: "example-configs/firefrogs/scatters_5000000.tsv"
 
 # this file is only needed when treating different samples
 # as different species, for indel realignment, etc.

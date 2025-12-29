@@ -3,8 +3,11 @@ log <- file(snakemake@log[[1]], open="wt")
 sink(log, type = "output")
 sink(log, type = "message")
 
-library(tidyverse)
-
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(readr)
+library(purrr)
 
 # these are while developing
 #chroms_file = ".test/config/chromosomes.tsv"

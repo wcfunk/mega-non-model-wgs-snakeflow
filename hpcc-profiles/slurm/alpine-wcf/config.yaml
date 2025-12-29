@@ -35,6 +35,7 @@ cluster-generic-cancel-nargs: 4000
 
 set-threads:
   map_reads: 4
+  make_gvcf_sections: 4
   realigner_target_creator: 4
   genomics_db_import_chromosomes: 10
   genomics_db_import_scaffold_groups: 10
@@ -50,7 +51,7 @@ set-resources:
   map_reads:
     mem_mb: 14960
   make_gvcf_sections:
-    mem_mb: 3740
+    mem_mb: 14960
   genomics_db_import_chromosomes:
     mem_mb: 37400
   genomics_db_import_scaffold_groups:

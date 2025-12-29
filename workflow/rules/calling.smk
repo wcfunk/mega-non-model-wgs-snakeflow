@@ -55,10 +55,11 @@ rule make_gvcf_sections:
         java_opts="-Xmx4g",
         conf_pars=config["params"]["gatk"]["HaplotypeCaller"]
     resources:
-        time="1-00:00:00",
-        mem_mb = 4600,
-        cpus = 1
-    threads: 1
+        time="2-00:00:00",
+        qos="long",
+        mem_mb = 14960,
+        cpus = 4
+    threads: 4
     shell:
         "gatk --java-options \"{params.java_opts}\" HaplotypeCaller "
         " -R {input.ref} "
@@ -114,12 +115,13 @@ rule genomics_db_import_chromosomes:
         "results/bqsr-round-{bqsr_round}/benchmarks/genomics_db_import_chromosomes/{chromo}.bmk"
     params:
         my_opts=chromo_import_gdb_opts,
-        java_opts="-Xmx4g",  # optional
+        java_opts="-Xmx40g",  # optional        
+        batch = 5
     resources:
-        mem_mb = 9400,
-        cpus = 2,
+        mem_mb = 14960,
+        cpus = 4,
         time = "1-00:00:00"
-    threads: 2
+    threads: 4
     conda:
         "gatk4.2.6.1"
     shell:
@@ -147,12 +149,12 @@ rule genomics_db_import_scaffold_groups:
         "results/bqsr-round-{bqsr_round}/benchmarks/genomics_db_import_scaffold_groups/{scaff_group}.bmk"
     params:
         my_opts=scaff_group_import_gdb_opts,
-        java_opts="-Xmx4g",  # optional
+        java_opts="-Xmx40g",  # optional
     resources:
-        mem_mb = 9400,
-        cpus = 2,
+        mem_mb = 37400,
+        cpus = 10,
         time = "1-00:00:00"
-    threads: 2
+    threads: 10
     conda:
         "gatk4.2.6.1"
     shell:
@@ -160,8 +162,6 @@ rule genomics_db_import_scaffold_groups:
         " gatk --java-options {params.java_opts} GenomicsDBImport "
         " $(echo {input.gvcfs} | awk '{{for(i=1;i<=NF;i++) printf(\" -V %s \", $i)}}') "
         " {params.my_opts} {output.db} >{log} 2>&1; "
-
-
 
 
 
@@ -182,13 +182,13 @@ rule genomics_db2vcf_scattered:
         "results/bqsr-round-{bqsr_round}/benchmarks/genomics_db2vcf/{sg_or_chrom}/{scatter}.bmk",
     params:
         gendb="results/bqsr-round-{bqsr_round}/genomics_db/{sg_or_chrom}",
-        java_opts="-Xmx8g",  # I might need to consider a temp directory, too in which case, put it in the config.yaml
+        java_opts="-Xmx28g",  # I might need to consider a temp directory, too in which case, put it in the config.yaml
         pextra=" --genomicsdb-shared-posixfs-optimizations --only-output-calls-starting-in-intervals "
     resources:
-        mem_mb = 11750,
-        cpus = 2,
+        mem_mb = 37400,
+        cpus = 10,
         time = "1-00:00:00"
-    threads: 2
+    threads: 10
     conda:
         "gatk4.2.6.1"
     shell:
